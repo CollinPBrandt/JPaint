@@ -1,19 +1,42 @@
 package model;
 
+import model.persistence.ApplicationState;
+import model.shapes.ShapeList;
 import model.shapes.ShapeObject;
 import view.gui.PaintCanvas;
-
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.ArrayList;
 
 public class MouseHandler extends MouseAdapter {
 
-    public Pair start;
-    public Pair end;
+    private Pair start;
+    private Pair end;
+    private ICommand command;
+    private ApplicationState appState;
     private PaintCanvas canvas;
+    private ShapeList shapeList;
 
-    public MouseHandler(PaintCanvas canvas) {
+    public MouseHandler(PaintCanvas canvas, ApplicationState appState){
         this.canvas = canvas;
+        this.appState = appState;
+        shapeList = new ShapeList(canvas);
+    }
+
+    private void setCommand() {
+        switch (appState.getActiveStartAndEndPointMode()) {
+            case DRAW:
+                this.command = new CreateShapeCommand(start, end, appState, shapeList);
+                break;
+            case SELECT:
+                this.command = new SelectShapeCommand(start, end, canvas);
+                break;
+            case MOVE:
+                this.command = new MoveShapeCommand(start, end, canvas);
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -24,6 +47,7 @@ public class MouseHandler extends MouseAdapter {
     @Override
     public void mouseReleased(MouseEvent e) {
         end = new Pair(e.getX(), e.getY());
-        canvas.addShapeToDraw(new ShapeObject(start.x, start.y, Math.abs(start.x - end.x), Math.abs(start.y - end.y)));
+        setCommand();
+        command.execute();
     }
 }

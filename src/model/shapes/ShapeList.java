@@ -1,18 +1,22 @@
 package model.shapes;
 
-import java.awt.*;
+import view.gui.PaintCanvas;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class ShapeList {
 
-    public List<ShapeObject> shapeList;
+    private PaintCanvas canvas;
+    private ShapeDrawer drawer;
+    public List<ShapeObject> shapeList = new ArrayList<>();
 
-    public ShapeList(List<ShapeObject> shapeList) {
-        this.shapeList = shapeList;
+    public ShapeList(PaintCanvas canvas) {
+        this.canvas = canvas;
+        drawer = new ShapeDrawer(canvas, this);
     }
 
-    public void addShape(ShapeObject shape){
+    public void addShape(ShapeObject shape) {
         shapeList.add(shape);
     }
 }
