@@ -9,6 +9,7 @@ public class ShapeObject {
     private int width;
     private int height;
 
+    private int testing;
 
     public ShapeObject(int x, int y, int width, int height) {
         this.x = x;
