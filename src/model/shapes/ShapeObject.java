@@ -35,4 +35,8 @@ public class ShapeObject {
     public Pair getEnd() {
         return end;
     }
+
+    public ShapeColor getShapePrimaryColor() {
+        return shapePrimaryColor;
+    }
 }
