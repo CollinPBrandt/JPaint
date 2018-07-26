@@ -2,8 +2,6 @@ package model.shapes;
 
 import model.Pair;
 
-import java.awt.*;
-
 public class ShapeObject {
 
     private Pair start;
@@ -38,5 +36,9 @@ public class ShapeObject {
 
     public ShapeColor getShapePrimaryColor() {
         return shapePrimaryColor;
+    }
+
+    public ShapeColor getShapeSecondaryColor(){
+        return shapeSecondaryColor;
     }
 }

@@ -4,9 +4,14 @@ import java.awt.*;
 
 public class ColorAdaptor {
 
-    public static Color ChangeColor(ShapeObject shape) {
-        ShapeColor shapecolor = shape.getShapePrimaryColor();
-        switch (shapecolor) {
+    public static Color ChangeColor(ShapeObject shape, char primaryOrSecondary) {
+        ShapeColor shapeColor;
+        if(primaryOrSecondary == 'p')
+            shapeColor = shape.getShapePrimaryColor();
+        else
+            shapeColor = shape.getShapeSecondaryColor();
+
+        switch (shapeColor) {
             case BLACK:
                 return Color.BLACK;
             case BLUE:

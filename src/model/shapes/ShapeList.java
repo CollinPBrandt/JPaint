@@ -1,51 +1,34 @@
 package model.shapes;
 
-import model.interfaces.IDraw;
 import view.gui.PaintCanvas;
-
-import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShapeList {
+public class ShapeList implements IShapeListSubject{
 
-    private PaintCanvas canvas;
-    Graphics g;
-    public List<ShapeObject> shapeList = new ArrayList<>();
+    public List<ShapeObject> shapelist = new ArrayList<>();
+    public List<IShapeObserver> shapeObservers = new ArrayList<>();
 
     public ShapeList(PaintCanvas canvas) {
-        this.canvas = canvas;
-        this.g = canvas.getGraphics2D();
+        new DrawShapeObserver(this, canvas);
     }
 
     public void addShape(ShapeObject shape) {
-        shapeList.add(shape);
-        drawShape();
-        canvas.update(g);
+        shapelist.add(shape);
+        notifyObservers();
     }
 
+    public void registerObserver(IShapeObserver shapeObserver){
+        shapeObservers.add(shapeObserver);
+    }
 
-    public void drawShape() {
-        for(ShapeObject shape : shapeList){
-            g.setColor(ColorAdaptor.ChangeColor(shape));
-            IDraw drawStrategy;
+    public void removeObserver(IShapeObserver shapeObserver){
+        shapeObservers.remove(shapeObserver);
+    }
 
-            switch (shape.getShapeType()) {
-                case ELLIPSE:
-                    drawStrategy = new EllipseDraw();
-                    drawStrategy.draw(shape, canvas, g);
-                    break;
-                case RECTANGLE:
-                    drawStrategy = new RectangleDraw();
-                    drawStrategy.draw(shape, canvas, g);
-                    break;
-                case TRIANGLE:
-                    drawStrategy = new TriangleDraw();
-                    drawStrategy.draw(shape, canvas, g);
-                    break;
-                default:
-                    break;
-            }
+    public void notifyObservers(){
+        for(IShapeObserver shapeObserver : shapeObservers){
+            shapeObserver.update();
         }
     }
 }
