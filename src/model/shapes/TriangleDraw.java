@@ -12,9 +12,4 @@ public class TriangleDraw implements IDraw {
         int[] sideB = {shape.getStart().y, shape.getEnd().y, shape.getEnd().y};
         g.drawPolygon(sideA, sideB, 3);
     }
-
-    @Override
-    public void paint(Graphics g) {
-
-    }
 }

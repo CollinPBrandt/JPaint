@@ -13,7 +13,4 @@ public class EllipseDraw implements IDraw {
         //g.setColor(ColorAdaptor.ChangeColor(shape, 's'));
         //g.fillOval(shape.getStart().x, shape.getStart().y, Math.abs(shape.getStart().x - shape.getEnd().x), Math.abs(shape.getStart().y - shape.getEnd().y));
     }
-
-    public void paint(Graphics g){
-    }
 }
