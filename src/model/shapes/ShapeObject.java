@@ -14,7 +14,6 @@ public class ShapeObject {
     private ShapeColor shapeSecondaryColor;
     private ShapeShadingType shapeShadingType;
 
-
     public ShapeObject(Pair start, Pair end, ShapeConfiguration shapeConfig) {
         this.start = start;
         this.end = end;
@@ -25,8 +24,15 @@ public class ShapeObject {
         this.shapeShadingType = shapeConfig.getShapeShadingType();
     }
 
-    public void draw(){
-        Graphics shape = canvas.getGraphics2D();
-        shape.drawOval(start.x, start.y, Math.abs(start.x - end.x), Math.abs(start.y - end.y));
+    public ShapeType getShapeType() {
+        return shapeType;
+    }
+
+    public Pair getStart() {
+        return start;
+    }
+
+    public Pair getEnd() {
+        return end;
     }
 }

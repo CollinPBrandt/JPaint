@@ -1,5 +1,6 @@
 package model;
 
+import model.interfaces.ICommand;
 import view.gui.PaintCanvas;
 
 public class MoveShapeCommand implements ICommand {

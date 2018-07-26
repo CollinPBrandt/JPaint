@@ -1,5 +1,6 @@
 package model;
 
+import model.interfaces.ICommand;
 import model.persistence.ApplicationState;
 import model.shapes.ShapeConfiguration;
 import model.shapes.ShapeList;
@@ -21,28 +22,9 @@ public class CreateShapeCommand implements ICommand {
 
     @Override
     public void execute() {
-        //Graphics shape = canvas.getGraphics2D();
-        //shape.drawOval(start.x, start.y, Math.abs(start.x - end.x), Math.abs(start.y - end.y));
         ShapeConfiguration shapeConfig = appState.getCurrentShapeConfiguration();
         ShapeObject shape = new ShapeObject(start, end, shapeConfig);
         shapeList.addShape(shape);
-
-
-
-
-       /* switch(shapeConfig.getShapeType()) {
-            case ELLIPSE:
-                ShapeObject shape = new ShapeObject(start, end, shapeConfig);
-                break;
-            case RECTANGLE:
-                RectangleObject shape = new RectangleObject(canvas);
-                break;
-            case TRIANGLE:
-                TriangleObject shape = new TriangleObject(canvas);
-                break;
-            default:
-                break;
-        }*/
 
     }
 }

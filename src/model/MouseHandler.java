@@ -1,12 +1,11 @@
 package model;
 
+import model.interfaces.ICommand;
 import model.persistence.ApplicationState;
 import model.shapes.ShapeList;
-import model.shapes.ShapeObject;
 import view.gui.PaintCanvas;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.util.ArrayList;
 
 public class MouseHandler extends MouseAdapter {
 
