@@ -1,15 +1,19 @@
 package model.shapes;
 
+import model.interfaces.IShapeListSubject;
+import model.interfaces.IShapeObserver;
+import model.shapes.DrawShapes.DrawShapeObserver;
 import view.gui.PaintCanvas;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShapeList implements IShapeListSubject{
+public class ShapeList implements IShapeListSubject {
 
     public List<ShapeObject> shapelist = new ArrayList<>();
     public List<IShapeObserver> shapeObservers = new ArrayList<>();
 
     public ShapeList(PaintCanvas canvas) {
+
         new DrawShapeObserver(this, canvas);
     }
 

@@ -1,6 +1,10 @@
-package model.shapes;
+package model.shapes.DrawShapes;
 
 import model.interfaces.IDraw;
+import model.interfaces.IShapeObserver;
+import model.shapes.ColorAdaptor;
+import model.shapes.ShapeList;
+import model.shapes.ShapeObject;
 import view.gui.PaintCanvas;
 
 import java.awt.*;

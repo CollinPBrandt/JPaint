@@ -1,5 +1,7 @@
 package model.shapes;
 
+import model.shapes.ShapeEnums.ShapeColor;
+
 import java.awt.*;
 
 public class ColorAdaptor {

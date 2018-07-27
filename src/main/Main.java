@@ -16,6 +16,7 @@ public class Main {
         ApplicationState appState = new ApplicationState(uiModule);
         IJPaintController controller = new JPaintController(uiModule, appState);
         controller.setup();
-        ((GuiWindow) guiWindow).addMouseHandler(appState);
+
+        guiWindow.addMouseHandler(appState);
     }
 }

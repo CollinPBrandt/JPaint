@@ -1,5 +1,9 @@
 package model.shapes;
 
+import model.shapes.ShapeEnums.ShapeColor;
+import model.shapes.ShapeEnums.ShapeShadingType;
+import model.shapes.ShapeEnums.ShapeType;
+
 public class ShapeConfiguration {
 
     private ShapeType shapeType;

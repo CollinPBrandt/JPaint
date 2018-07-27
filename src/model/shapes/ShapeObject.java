@@ -1,6 +1,9 @@
 package model.shapes;
 
 import model.Pair;
+import model.shapes.ShapeEnums.ShapeColor;
+import model.shapes.ShapeEnums.ShapeShadingType;
+import model.shapes.ShapeEnums.ShapeType;
 
 public class ShapeObject {
 
@@ -34,11 +37,7 @@ public class ShapeObject {
         return end;
     }
 
-    public ShapeColor getShapePrimaryColor() {
-        return shapePrimaryColor;
-    }
+    public ShapeColor getShapePrimaryColor() { return shapePrimaryColor; }
 
-    public ShapeColor getShapeSecondaryColor(){
-        return shapeSecondaryColor;
-    }
+    public ShapeColor getShapeSecondaryColor(){ return shapeSecondaryColor; }
 }

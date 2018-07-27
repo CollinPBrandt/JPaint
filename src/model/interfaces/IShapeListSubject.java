@@ -1,4 +1,4 @@
-package model.shapes;
+package model.interfaces;
 
 public interface IShapeListSubject {
 
