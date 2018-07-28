@@ -29,4 +29,12 @@ public class MouseDragDimensions {
     public int getHeight() {
         return height;
     }
+
+    public void setStartX(int startX) {
+        this.startX = startX;
+    }
+
+    public void setStartY(int startY) {
+        this.startY = startY;
+    }
 }

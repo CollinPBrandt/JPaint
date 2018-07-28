@@ -15,4 +15,6 @@ public class SelectedShapeList {
 
     public List<ShapeObject> getList(){return selectedList;}
 
+    public void removeShape(ShapeObject shape){selectedList.remove(shape);}
+
 }

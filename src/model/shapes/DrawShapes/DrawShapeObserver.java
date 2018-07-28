@@ -29,21 +29,20 @@ public class DrawShapeObserver implements IShapeObserver {
             IDraw drawStrategy;
             switch (shape.getShapeType()) {
                 case ELLIPSE:
-                    drawStrategy = new EllipseDraw();
-                    drawStrategy.draw(shape, canvas, g);
+                    drawStrategy = new EllipseDraw(shape, canvas, g);
+                    drawStrategy.paint(g);
                     break;
                 case RECTANGLE:
-                    drawStrategy = new RectangleDraw();
-                    drawStrategy.draw(shape, canvas, g);
+                    drawStrategy = new RectangleDraw(shape, canvas, g);
+                    drawStrategy.paint(g);
                     break;
                 case TRIANGLE:
-                    drawStrategy = new TriangleDraw();
-                    drawStrategy.draw(shape, canvas, g);
+                    drawStrategy = new TriangleDraw(shape, canvas, g);
+                    drawStrategy.paint(g);
                     break;
                 default:
                     break;
             }
-            canvas.paint(g);
         }
     }
 }

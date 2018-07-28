@@ -10,6 +10,8 @@ import model.shapes.DrawShapes.DrawShapeObserver;
 import model.shapes.SelectedShapeList;
 import model.shapes.ShapeData.ShapeList;
 import view.gui.PaintCanvas;
+
+import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -19,6 +21,8 @@ public class MouseHandler extends MouseAdapter {
     private int startY;
     private int width;
     private int height;
+    private boolean dragDirectionRight;
+    private boolean dragDirectionDown;
     private ICommand command;
     private ApplicationState appState;
     private PaintCanvas canvas;
@@ -42,7 +46,7 @@ public class MouseHandler extends MouseAdapter {
                 this.command = new SelectShapeCommand(new MouseDragDimensions(startX, startY, width, height), shapeList, selectedShapeList);
                 break;
             case MOVE:
-                this.command = new MoveShapeCommand(new MouseDragDimensions(startX, startY, width, height), canvas);
+                this.command = new MoveShapeCommand(new MouseDragDimensions(startX, startY, width, height), dragDirectionRight, dragDirectionDown, selectedShapeList);
                 break;
             default:
                 break;
@@ -61,16 +65,20 @@ public class MouseHandler extends MouseAdapter {
         int endY = e.getY();
         int tempX;
         int tempY;
+        dragDirectionRight = true;
+        dragDirectionDown = true;
 
         if(startX > endX) {
             tempX = startX;
             startX = endX;
             endX = tempX;
+            dragDirectionRight = false;
         }
         if(startY > endY){
             tempY = startY;
             startY = endY;
             endY = tempY;
+            dragDirectionDown = false;
         }
 
         width = endX - startX;
@@ -78,5 +86,11 @@ public class MouseHandler extends MouseAdapter {
 
         setCommand();
         command.execute();
+
+        Graphics whiteRecForClearing = canvas.getGraphics2D();  //draw white rectangle over canvas to clear
+        whiteRecForClearing.setColor(Color.white);
+        whiteRecForClearing.fillRect(0,0, 1200, 800);
+
+        shapeList.notifyObservers();
     }
 }

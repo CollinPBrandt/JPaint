@@ -29,8 +29,13 @@ public class SelectShapeCommand implements ICommand {
         }
     }
 
+    public void removeSelectedShapes(){
+        selectedShapeList.getList().clear();
+    }
+
     @Override
     public void execute() {
+        removeSelectedShapes();
         findSelectedShapes();
     }
 }
