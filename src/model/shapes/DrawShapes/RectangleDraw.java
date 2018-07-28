@@ -1,7 +1,7 @@
 package model.shapes.DrawShapes;
 
 import model.interfaces.IDraw;
-import model.shapes.ShapeObject;
+import model.shapes.ShapeData.ShapeObject;
 import view.gui.PaintCanvas;
 
 import java.awt.*;

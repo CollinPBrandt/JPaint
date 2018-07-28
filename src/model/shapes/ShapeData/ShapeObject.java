@@ -1,6 +1,5 @@
-package model.shapes;
+package model.shapes.ShapeData;
 
-import model.ShapeDimensions;
 import model.shapes.ShapeEnums.ShapeColor;
 import model.shapes.ShapeEnums.ShapeShadingType;
 import model.shapes.ShapeEnums.ShapeType;

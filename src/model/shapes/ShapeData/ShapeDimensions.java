@@ -1,4 +1,4 @@
-package model;
+package model.shapes.ShapeData;
 
 public class ShapeDimensions {
 

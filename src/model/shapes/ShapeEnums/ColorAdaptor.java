@@ -1,5 +1,6 @@
-package model.shapes;
+package model.shapes.ShapeEnums;
 
+import model.shapes.ShapeData.ShapeObject;
 import model.shapes.ShapeEnums.ShapeColor;
 
 import java.awt.*;

@@ -1,4 +1,4 @@
-package model.shapes;
+package model.shapes.ShapeData;
 
 import model.shapes.ShapeEnums.ShapeColor;
 import model.shapes.ShapeEnums.ShapeShadingType;

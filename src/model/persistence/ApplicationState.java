@@ -1,9 +1,9 @@
 package model.persistence;
 
-import model.shapes.*;
 import model.dialogs.DialogProvider;
 import model.interfaces.IApplicationState;
 import model.interfaces.IDialogProvider;
+import model.shapes.ShapeData.ShapeConfiguration;
 import model.shapes.ShapeEnums.ShapeColor;
 import model.shapes.ShapeEnums.ShapeShadingType;
 import model.shapes.ShapeEnums.ShapeType;

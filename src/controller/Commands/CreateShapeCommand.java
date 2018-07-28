@@ -1,10 +1,11 @@
-package model;
+package controller.Commands;
 
+import model.shapes.ShapeData.ShapeDimensions;
 import model.interfaces.ICommand;
 import model.persistence.ApplicationState;
-import model.shapes.ShapeConfiguration;
-import model.shapes.ShapeList;
-import model.shapes.ShapeObject;
+import model.shapes.ShapeData.ShapeConfiguration;
+import model.shapes.ShapeData.ShapeList;
+import model.shapes.ShapeData.ShapeObject;
 
 public class CreateShapeCommand implements ICommand {
 

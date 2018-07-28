@@ -1,10 +1,14 @@
-package model;
+package view;
 
+import controller.Commands.CreateShapeCommand;
+import controller.Commands.MoveShapeCommand;
+import controller.Commands.SelectShapeCommand;
 import model.interfaces.ICommand;
 import model.interfaces.IShapeObserver;
 import model.persistence.ApplicationState;
 import model.shapes.DrawShapes.DrawShapeObserver;
-import model.shapes.ShapeList;
+import model.shapes.ShapeData.ShapeDimensions;
+import model.shapes.ShapeData.ShapeList;
 import view.gui.PaintCanvas;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;

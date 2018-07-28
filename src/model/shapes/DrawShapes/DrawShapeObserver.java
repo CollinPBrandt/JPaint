@@ -2,9 +2,9 @@ package model.shapes.DrawShapes;
 
 import model.interfaces.IDraw;
 import model.interfaces.IShapeObserver;
-import model.shapes.ColorAdaptor;
-import model.shapes.ShapeList;
-import model.shapes.ShapeObject;
+import model.shapes.ShapeData.ShapeList;
+import model.shapes.ShapeData.ShapeObject;
+import model.shapes.ShapeEnums.ColorAdaptor;
 import view.gui.PaintCanvas;
 
 import java.awt.*;

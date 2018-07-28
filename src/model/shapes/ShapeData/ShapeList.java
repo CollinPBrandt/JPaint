@@ -1,9 +1,9 @@
-package model.shapes;
+package model.shapes.ShapeData;
 
 import model.interfaces.IShapeListSubject;
 import model.interfaces.IShapeObserver;
-import model.shapes.DrawShapes.DrawShapeObserver;
-import view.gui.PaintCanvas;
+import model.shapes.ShapeData.ShapeObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
