@@ -1,23 +1,21 @@
 package model.shapes;
 
-import model.Pair;
+import model.ShapeDimensions;
 import model.shapes.ShapeEnums.ShapeColor;
 import model.shapes.ShapeEnums.ShapeShadingType;
 import model.shapes.ShapeEnums.ShapeType;
 
 public class ShapeObject {
 
-    private Pair start;
-    private Pair end;
+    private ShapeDimensions dimensions;
     private ShapeConfiguration shapeConfig;
     private ShapeType shapeType;
     private ShapeColor shapePrimaryColor;
     private ShapeColor shapeSecondaryColor;
     private ShapeShadingType shapeShadingType;
 
-    public ShapeObject(Pair start, Pair end, ShapeConfiguration shapeConfig) {
-        this.start = start;
-        this.end = end;
+    public ShapeObject(ShapeDimensions dimensions, ShapeConfiguration shapeConfig) {
+        this.dimensions = dimensions;
         this.shapeConfig = shapeConfig;
         this.shapeType = shapeConfig.getShapeType();
         this.shapePrimaryColor = shapeConfig.getShapePrimaryColor();
@@ -29,13 +27,7 @@ public class ShapeObject {
         return shapeType;
     }
 
-    public Pair getStart() {
-        return start;
-    }
-
-    public Pair getEnd() {
-        return end;
-    }
+    public ShapeDimensions getDimensions() {return dimensions;}
 
     public ShapeColor getShapePrimaryColor() { return shapePrimaryColor; }
 

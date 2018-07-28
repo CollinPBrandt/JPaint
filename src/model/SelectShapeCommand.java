@@ -5,13 +5,11 @@ import view.gui.PaintCanvas;
 
 public class SelectShapeCommand implements ICommand {
 
-    private Pair start;
-    private Pair end;
+    private ShapeDimensions dimensions;
     private PaintCanvas canvas;
 
-    public SelectShapeCommand(Pair start, Pair end, PaintCanvas canvas) {
-        this.start = start;
-        this.end = end;
+    public SelectShapeCommand(ShapeDimensions dimensions, PaintCanvas canvas) {
+        this.dimensions = dimensions;
         this.canvas = canvas;
     }
 

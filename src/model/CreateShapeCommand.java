@@ -8,14 +8,12 @@ import model.shapes.ShapeObject;
 
 public class CreateShapeCommand implements ICommand {
 
-    private Pair start;
-    private Pair end;
+    private ShapeDimensions dimensions;
     private ApplicationState appState;
     private ShapeList shapeList;
 
-    public CreateShapeCommand(Pair start, Pair end, ApplicationState appState, ShapeList shapeList) {
-        this.start = start;
-        this.end = end;
+    public CreateShapeCommand(ShapeDimensions dimensions, ApplicationState appState, ShapeList shapeList) {
+        this.dimensions = dimensions;
         this.appState = appState;
         this.shapeList = shapeList;
     }
@@ -23,7 +21,7 @@ public class CreateShapeCommand implements ICommand {
     @Override
     public void execute() {
         ShapeConfiguration shapeConfig = appState.getCurrentShapeConfiguration();
-        ShapeObject shape = new ShapeObject(start, end, shapeConfig);
+        ShapeObject shape = new ShapeObject(dimensions, shapeConfig);
         shapeList.addShape(shape);
 
     }

@@ -9,8 +9,8 @@ import java.awt.*;
 public class TriangleDraw implements IDraw {
     @Override
     public void draw(ShapeObject shape, PaintCanvas canvas, Graphics g) {
-        int[] sideA = {shape.getStart().x, shape.getEnd().x, shape.getStart().x};
-        int[] sideB = {shape.getStart().y, shape.getEnd().y, shape.getEnd().y};
+        int[] sideA = {shape.getDimensions().getStartX(), shape.getDimensions().getStartX() + shape.getDimensions().getWidth(), shape.getDimensions().getStartX()};
+        int[] sideB = {shape.getDimensions().getStartY(), shape.getDimensions().getStartY() + shape.getDimensions().getHeight(), shape.getDimensions().getStartY() + shape.getDimensions().getHeight()};
         g.drawPolygon(sideA, sideB, 3);
     }
 }
