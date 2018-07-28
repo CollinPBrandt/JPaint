@@ -1,4 +1,4 @@
-package view;
+package view.Mouse;
 
 import controller.Commands.CreateShapeCommand;
 import controller.Commands.MoveShapeCommand;
@@ -7,7 +7,7 @@ import model.interfaces.ICommand;
 import model.interfaces.IShapeObserver;
 import model.persistence.ApplicationState;
 import model.shapes.DrawShapes.DrawShapeObserver;
-import model.shapes.ShapeData.ShapeDimensions;
+import model.shapes.SelectedShapeList;
 import model.shapes.ShapeData.ShapeList;
 import view.gui.PaintCanvas;
 import java.awt.event.MouseAdapter;
@@ -23,24 +23,26 @@ public class MouseHandler extends MouseAdapter {
     private ApplicationState appState;
     private PaintCanvas canvas;
     private ShapeList shapeList;
+    private SelectedShapeList selectedShapeList;
 
     public MouseHandler(PaintCanvas canvas, ApplicationState appState){
         this.canvas = canvas;
         this.appState = appState;
         shapeList = new ShapeList();
+        selectedShapeList = new SelectedShapeList();
         IShapeObserver shapeObserver = new DrawShapeObserver(shapeList, canvas); //will self register to shapeList
     }
 
     private void setCommand() {
         switch (appState.getActiveStartAndEndPointMode()) {
             case DRAW:
-                this.command = new CreateShapeCommand(new ShapeDimensions(startX, startY, width, height), appState, shapeList);
+                this.command = new CreateShapeCommand(new MouseDragDimensions(startX, startY, width, height), appState, shapeList);
                 break;
             case SELECT:
-                this.command = new SelectShapeCommand(new ShapeDimensions(startX, startY, width, height), canvas);
+                this.command = new SelectShapeCommand(new MouseDragDimensions(startX, startY, width, height), shapeList, selectedShapeList);
                 break;
             case MOVE:
-                this.command = new MoveShapeCommand(new ShapeDimensions(startX, startY, width, height), canvas);
+                this.command = new MoveShapeCommand(new MouseDragDimensions(startX, startY, width, height), canvas);
                 break;
             default:
                 break;

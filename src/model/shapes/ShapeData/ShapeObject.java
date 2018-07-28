@@ -3,17 +3,18 @@ package model.shapes.ShapeData;
 import model.shapes.ShapeEnums.ShapeColor;
 import model.shapes.ShapeEnums.ShapeShadingType;
 import model.shapes.ShapeEnums.ShapeType;
+import view.Mouse.MouseDragDimensions;
 
 public class ShapeObject {
 
-    private ShapeDimensions dimensions;
+    private MouseDragDimensions dimensions;
     private ShapeConfiguration shapeConfig;
     private ShapeType shapeType;
     private ShapeColor shapePrimaryColor;
     private ShapeColor shapeSecondaryColor;
     private ShapeShadingType shapeShadingType;
 
-    public ShapeObject(ShapeDimensions dimensions, ShapeConfiguration shapeConfig) {
+    public ShapeObject(MouseDragDimensions dimensions, ShapeConfiguration shapeConfig) {
         this.dimensions = dimensions;
         this.shapeConfig = shapeConfig;
         this.shapeType = shapeConfig.getShapeType();
@@ -26,7 +27,7 @@ public class ShapeObject {
         return shapeType;
     }
 
-    public ShapeDimensions getDimensions() {return dimensions;}
+    public MouseDragDimensions getDimensions() {return dimensions;}
 
     public ShapeColor getShapePrimaryColor() { return shapePrimaryColor; }
 

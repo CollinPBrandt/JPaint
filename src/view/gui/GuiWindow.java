@@ -7,7 +7,7 @@ import java.util.NoSuchElementException;
 import javax.swing.*;
 import javax.swing.border.*;
 
-import view.MouseHandler;
+import view.Mouse.MouseHandler;
 import model.persistence.ApplicationState;
 import view.interfaces.IGuiWindow;
 import view.EventName;

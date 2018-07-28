@@ -1,15 +1,15 @@
 package controller.Commands;
 
-import model.shapes.ShapeData.ShapeDimensions;
+import view.Mouse.MouseDragDimensions;
 import model.interfaces.ICommand;
 import view.gui.PaintCanvas;
 
 public class MoveShapeCommand implements ICommand {
 
-    private ShapeDimensions dimensions;
+    private MouseDragDimensions dimensions;
     private PaintCanvas canvas;
 
-    public MoveShapeCommand(ShapeDimensions dimensions, PaintCanvas canvas) {
+    public MoveShapeCommand(MouseDragDimensions dimensions, PaintCanvas canvas) {
         this.dimensions = dimensions;
         this.canvas = canvas;
     }

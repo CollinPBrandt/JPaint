@@ -1,13 +1,13 @@
-package model.shapes.ShapeData;
+package view.Mouse;
 
-public class ShapeDimensions {
+public class MouseDragDimensions {
 
     private int startX;
     private int startY;
     private int width;
     private int height;
 
-    public ShapeDimensions(int startX, int startY, int width, int height) {
+    public MouseDragDimensions(int startX, int startY, int width, int height) {
         this.startX = startX;
         this.startY = startY;
         this.width = width;
