@@ -2,6 +2,7 @@ package model.shapes.DrawShapes;
 
 import model.interfaces.IDraw;
 import model.shapes.ShapeData.ShapeObject;
+import model.shapes.ShapeEnums.ColorAdaptor;
 import view.gui.PaintCanvas;
 
 import java.awt.*;
@@ -18,14 +19,27 @@ public class TriangleDraw implements IDraw {
         this.g = g;
     }
 
-    public void draw(Graphics g) {
-        int[] sideA = {shape.getDimensions().getStartX(), shape.getDimensions().getStartX() + shape.getDimensions().getWidth(), shape.getDimensions().getStartX()};
-        int[] sideB = {shape.getDimensions().getStartY(), shape.getDimensions().getStartY() + shape.getDimensions().getHeight(), shape.getDimensions().getStartY() + shape.getDimensions().getHeight()};
-        g.drawPolygon(sideA, sideB, 3);
-    }
-
     @Override
     public void paint(Graphics g) {
-        draw(g);
+        int[] sideA = {shape.getDimensions().getStartX(), shape.getDimensions().getStartX() + shape.getDimensions().getWidth(), shape.getDimensions().getStartX()};
+        int[] sideB = {shape.getDimensions().getStartY(), shape.getDimensions().getStartY() + shape.getDimensions().getHeight(), shape.getDimensions().getStartY() + shape.getDimensions().getHeight()};
+        switch(shape.getShapeShadingType()){
+            case FILLED_IN:
+                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.fillPolygon(sideA, sideB, 3);
+                break;
+            case OUTLINE:
+                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.drawPolygon(sideA, sideB, 3);
+                break;
+            case OUTLINE_AND_FILLED_IN:
+                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.fillPolygon(sideA, sideB, 3);
+                g.setColor(ColorAdaptor.ChangeColor(shape, 's'));
+                g.drawPolygon(sideA, sideB, 3);
+                break;
+            default:
+                break;
+        }
     }
 }

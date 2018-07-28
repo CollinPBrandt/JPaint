@@ -37,4 +37,8 @@ public class ShapeObject {
         dimensions.setStartX(newStartX);
         dimensions.setStartY(newStartY);
     }
+
+    public ShapeShadingType getShapeShadingType() {
+        return shapeShadingType;
+    }
 }

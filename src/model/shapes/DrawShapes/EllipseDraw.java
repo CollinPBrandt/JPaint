@@ -2,6 +2,7 @@ package model.shapes.DrawShapes;
 
 import model.interfaces.IDraw;
 import model.shapes.ShapeData.ShapeObject;
+import model.shapes.ShapeEnums.ColorAdaptor;
 import view.gui.PaintCanvas;
 
 import javax.swing.*;
@@ -19,12 +20,26 @@ public class EllipseDraw extends JPanel implements IDraw {
         this.g = g;
     }
 
-    public void draw(Graphics g) {
-        g.drawOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
-    }
-
     @Override
     public void paint(Graphics g) {
-        draw(g);
+        switch(shape.getShapeShadingType()){
+            case FILLED_IN:
+                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.fillOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
+                break;
+            case OUTLINE:
+                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.drawOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
+                break;
+            case OUTLINE_AND_FILLED_IN:
+                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.fillOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
+                g.setColor(Color.black);
+                g.setColor(ColorAdaptor.ChangeColor(shape, 's'));
+                g.drawOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth() - 1 , shape.getDimensions().getHeight() - 1); //looks better with 1px smaller outline
+                break;
+            default:
+                break;
+        }
     }
 }

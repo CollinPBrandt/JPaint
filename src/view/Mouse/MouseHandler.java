@@ -91,6 +91,6 @@ public class MouseHandler extends MouseAdapter {
         whiteRecForClearing.setColor(Color.white);
         whiteRecForClearing.fillRect(0,0, 1200, 800);
 
-        shapeList.notifyObservers();
+        shapeList.notifyObservers();    //redraw everything after clear
     }
 }
