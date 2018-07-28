@@ -9,18 +9,15 @@ import java.util.List;
 
 public class ShapeList implements IShapeListSubject {
 
-    public List<ShapeObject> shapelist = new ArrayList<>();
-    public List<IShapeObserver> shapeObservers = new ArrayList<>();
-
-    public ShapeList(PaintCanvas canvas) {
-
-        new DrawShapeObserver(this, canvas);
-    }
+    private List<ShapeObject> shapelist = new ArrayList<>();
+    private List<IShapeObserver> shapeObservers = new ArrayList<>();
 
     public void addShape(ShapeObject shape) {
         shapelist.add(shape);
         notifyObservers();
     }
+
+    public List<ShapeObject> getList(){return shapelist;}
 
     public void registerObserver(IShapeObserver shapeObserver){
         shapeObservers.add(shapeObserver);

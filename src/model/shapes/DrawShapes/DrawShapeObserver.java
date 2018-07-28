@@ -24,7 +24,7 @@ public class DrawShapeObserver implements IShapeObserver {
 
     @Override
     public void update() {
-        for(ShapeObject shape : shapeList.shapelist){
+        for(ShapeObject shape : shapeList.getList()){
             g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
             IDraw drawStrategy;
             switch (shape.getShapeType()) {

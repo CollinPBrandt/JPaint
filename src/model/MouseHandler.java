@@ -1,7 +1,9 @@
 package model;
 
 import model.interfaces.ICommand;
+import model.interfaces.IShapeObserver;
 import model.persistence.ApplicationState;
+import model.shapes.DrawShapes.DrawShapeObserver;
 import model.shapes.ShapeList;
 import view.gui.PaintCanvas;
 import java.awt.event.MouseAdapter;
@@ -21,7 +23,8 @@ public class MouseHandler extends MouseAdapter {
     public MouseHandler(PaintCanvas canvas, ApplicationState appState){
         this.canvas = canvas;
         this.appState = appState;
-        shapeList = new ShapeList(canvas);
+        shapeList = new ShapeList();
+        IShapeObserver shapeObserver = new DrawShapeObserver(shapeList, canvas); //will self register to shapeList
     }
 
     private void setCommand() {
