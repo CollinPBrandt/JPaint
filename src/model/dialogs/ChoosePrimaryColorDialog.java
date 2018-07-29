@@ -1,6 +1,6 @@
 package model.dialogs;
 
-import model.shapes.shapeEnums.ShapeColor;
+import model.shapes.enums.ShapeColor;
 import model.interfaces.IApplicationState;
 import view.interfaces.IDialogChoice;
 

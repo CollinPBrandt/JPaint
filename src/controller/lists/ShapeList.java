@@ -2,7 +2,7 @@ package controller.lists;
 
 import model.interfaces.IShapeListSubject;
 import model.interfaces.IShapeObserver;
-import model.shapes.shapeData.ShapeObject;
+import model.shapes.data.ShapeObject;
 
 import java.util.ArrayList;
 import java.util.List;

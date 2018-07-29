@@ -1,9 +1,9 @@
 package model.dialogs;
 
-import model.shapes.shapeEnums.ShapeColor;
-import model.shapes.shapeEnums.ShapeShadingType;
-import model.shapes.shapeEnums.ShapeType;
-import model.shapes.shapeEnums.StartAndEndPointMode;
+import model.shapes.enums.ShapeColor;
+import model.shapes.enums.ShapeShadingType;
+import model.shapes.enums.ShapeType;
+import model.shapes.enums.StartAndEndPointMode;
 import model.interfaces.IApplicationState;
 import model.interfaces.IDialogProvider;
 import view.interfaces.IDialogChoice;

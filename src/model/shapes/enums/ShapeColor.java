@@ -1,4 +1,4 @@
-package model.shapes.shapeEnums;
+package model.shapes.enums;
 
 public enum ShapeColor {
     BLACK,

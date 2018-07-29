@@ -4,9 +4,9 @@ import controller.interfaces.IUndoable;
 import view.mouse.MouseDragDimensions;
 import model.interfaces.ICommand;
 import model.persistence.ApplicationState;
-import model.shapes.shapeData.ShapeConfiguration;
+import model.shapes.data.ShapeConfiguration;
 import controller.lists.ShapeList;
-import model.shapes.shapeData.ShapeObject;
+import model.shapes.data.ShapeObject;
 
 public class CreateShapeCommand implements ICommand, IUndoable {
 

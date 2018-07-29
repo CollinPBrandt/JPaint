@@ -1,6 +1,6 @@
 package controller.lists;
 
-import model.shapes.shapeData.ShapeObject;
+import model.shapes.data.ShapeObject;
 
 import java.util.ArrayList;
 import java.util.List;

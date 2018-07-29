@@ -3,7 +3,7 @@ package controller.commands;
 import controller.interfaces.IUndoable;
 import controller.lists.ShapeListManager;
 import model.interfaces.ICommand;
-import model.shapes.shapeData.ShapeObject;
+import model.shapes.data.ShapeObject;
 import view.mouse.MouseDragDimensions;
 
 import java.util.ArrayList;

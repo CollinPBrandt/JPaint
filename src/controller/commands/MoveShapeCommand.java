@@ -2,7 +2,7 @@ package controller.commands;
 
 import controller.interfaces.IUndoable;
 import controller.lists.ShapeListManager;
-import model.shapes.shapeData.ShapeObject;
+import model.shapes.data.ShapeObject;
 import view.mouse.MouseDragDimensions;
 import model.interfaces.ICommand;
 

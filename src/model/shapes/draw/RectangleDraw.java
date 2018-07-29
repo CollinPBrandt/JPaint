@@ -1,8 +1,8 @@
-package model.shapes.drawStrategies;
+package model.shapes.draw;
 
 import model.interfaces.IDraw;
-import model.shapes.shapeData.ShapeObject;
-import model.shapes.shapeData.ColorAdaptor;
+import model.shapes.data.ShapeObject;
+import model.shapes.data.ColorAdaptor;
 import view.gui.PaintCanvas;
 
 import java.awt.*;

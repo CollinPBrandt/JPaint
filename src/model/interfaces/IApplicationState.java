@@ -1,10 +1,10 @@
 package model.interfaces;
 
 import controller.lists.ShapeListManager;
-import model.shapes.shapeEnums.ShapeColor;
-import model.shapes.shapeEnums.ShapeShadingType;
-import model.shapes.shapeEnums.ShapeType;
-import model.shapes.shapeEnums.StartAndEndPointMode;
+import model.shapes.enums.ShapeColor;
+import model.shapes.enums.ShapeShadingType;
+import model.shapes.enums.ShapeType;
+import model.shapes.enums.StartAndEndPointMode;
 
 public interface IApplicationState {
     void setActiveShape();

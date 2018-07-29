@@ -1,6 +1,6 @@
 package model.dialogs;
 
-import model.shapes.shapeEnums.StartAndEndPointMode;
+import model.shapes.enums.StartAndEndPointMode;
 import model.interfaces.IApplicationState;
 import view.interfaces.IDialogChoice;
 

@@ -7,7 +7,7 @@ import controller.lists.ShapeListManager;
 import model.interfaces.ICommand;
 import model.interfaces.IShapeObserver;
 import model.persistence.ApplicationState;
-import model.shapes.drawStrategies.DrawShapeObserver;
+import model.shapes.draw.DrawShapeObserver;
 import view.gui.PaintCanvas;
 
 import java.awt.event.MouseAdapter;

@@ -1,8 +1,8 @@
-package model.shapes.shapeData;
+package model.shapes.data;
 
-import model.shapes.shapeEnums.ShapeColor;
-import model.shapes.shapeEnums.ShapeShadingType;
-import model.shapes.shapeEnums.ShapeType;
+import model.shapes.enums.ShapeColor;
+import model.shapes.enums.ShapeShadingType;
+import model.shapes.enums.ShapeType;
 
 public class ShapeConfiguration {
 

@@ -4,11 +4,11 @@ import controller.lists.ShapeListManager;
 import model.dialogs.DialogProvider;
 import model.interfaces.IApplicationState;
 import model.interfaces.IDialogProvider;
-import model.shapes.shapeData.ShapeConfiguration;
-import model.shapes.shapeEnums.ShapeColor;
-import model.shapes.shapeEnums.ShapeShadingType;
-import model.shapes.shapeEnums.ShapeType;
-import model.shapes.shapeEnums.StartAndEndPointMode;
+import model.shapes.data.ShapeConfiguration;
+import model.shapes.enums.ShapeColor;
+import model.shapes.enums.ShapeShadingType;
+import model.shapes.enums.ShapeType;
+import model.shapes.enums.StartAndEndPointMode;
 import view.interfaces.IUiModule;
 
 public class ApplicationState implements IApplicationState {
