@@ -1,5 +1,6 @@
-package controller;
+package controller.Commands;
 
+import controller.ShapeListManager;
 import model.interfaces.ICommand;
 import model.shapes.ShapeData.ShapeObject;
 
@@ -13,6 +14,7 @@ public class CopyCommand implements ICommand {
 
     @Override
     public void execute() {
+        //shapeListManager.getClipBoardListObject().getList().clear();
         for(ShapeObject shape : shapeListManager.getSelectedShapeListObject().getList()){
             shapeListManager.getClipBoardListObject().addShape(shape);
         }

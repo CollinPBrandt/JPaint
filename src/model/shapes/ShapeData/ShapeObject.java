@@ -33,6 +33,8 @@ public class ShapeObject {
 
     public ShapeColor getShapeSecondaryColor(){ return shapeSecondaryColor; }
 
+    public ShapeConfiguration getShapeConfig(){return shapeConfig;}
+
     public void changeShapeStart(int newStartX, int newStartY){
         dimensions.setStartX(newStartX);
         dimensions.setStartY(newStartY);
