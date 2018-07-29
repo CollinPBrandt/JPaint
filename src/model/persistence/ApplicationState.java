@@ -1,14 +1,14 @@
 package model.persistence;
 
-import controller.ShapeListManager;
+import controller.lists.ShapeListManager;
 import model.dialogs.DialogProvider;
 import model.interfaces.IApplicationState;
 import model.interfaces.IDialogProvider;
-import model.shapes.ShapeData.ShapeConfiguration;
-import model.shapes.ShapeEnums.ShapeColor;
-import model.shapes.ShapeEnums.ShapeShadingType;
-import model.shapes.ShapeEnums.ShapeType;
-import model.shapes.ShapeEnums.StartAndEndPointMode;
+import model.shapes.shapeData.ShapeConfiguration;
+import model.shapes.shapeEnums.ShapeColor;
+import model.shapes.shapeEnums.ShapeShadingType;
+import model.shapes.shapeEnums.ShapeType;
+import model.shapes.shapeEnums.StartAndEndPointMode;
 import view.interfaces.IUiModule;
 
 public class ApplicationState implements IApplicationState {

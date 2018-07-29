@@ -1,8 +1,8 @@
 package main;
 
-import controller.IJPaintController;
+import controller.interfaces.IJPaintController;
 import controller.JPaintController;
-import controller.ShapeListManager;
+import controller.lists.ShapeListManager;
 import model.persistence.ApplicationState;
 import view.gui.PaintCanvas;
 import view.gui.Gui;
