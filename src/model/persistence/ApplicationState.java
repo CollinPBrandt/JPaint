@@ -1,5 +1,6 @@
 package model.persistence;
 
+import controller.ShapeListManager;
 import model.dialogs.DialogProvider;
 import model.interfaces.IApplicationState;
 import model.interfaces.IDialogProvider;
@@ -19,10 +20,12 @@ public class ApplicationState implements IApplicationState {
     private ShapeColor activeSecondaryColor;
     private ShapeShadingType activeShapeShadingType;
     private StartAndEndPointMode activeStartAndEndPointMode;
+    private ShapeListManager shapeListManager;
 
-    public ApplicationState(IUiModule uiModule) {
+    public ApplicationState(IUiModule uiModule, ShapeListManager shapeListManager) {
         this.uiModule = uiModule;
         this.dialogProvider = new DialogProvider(this);
+        this.shapeListManager = shapeListManager;
         setDefaults();
     }
 
@@ -50,6 +53,8 @@ public class ApplicationState implements IApplicationState {
     public void setActiveStartAndEndPointMode() {
         activeStartAndEndPointMode = uiModule.getDialogResponse(dialogProvider.getChooseStartAndEndPointModeDialog());
     }
+
+    public ShapeListManager getShapeListManager(){return shapeListManager;}
 
     @Override
     public ShapeType getActiveShapeType() {

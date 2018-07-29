@@ -1,4 +1,4 @@
-/*package controller;
+package controller;
 
 import model.shapes.SelectedShapeList;
 import model.shapes.ShapeData.ShapeList;
@@ -26,4 +26,3 @@ public class ShapeListManager {
         return clipBoardList;
     }
 }
-*/

@@ -1,5 +1,6 @@
 package model.interfaces;
 
+import controller.ShapeListManager;
 import model.shapes.ShapeEnums.ShapeColor;
 import model.shapes.ShapeEnums.ShapeShadingType;
 import model.shapes.ShapeEnums.ShapeType;
@@ -15,6 +16,8 @@ public interface IApplicationState {
     void setActiveShadingType();
 
     void setActiveStartAndEndPointMode();
+
+    ShapeListManager getShapeListManager();
 
     ShapeType getActiveShapeType();
 

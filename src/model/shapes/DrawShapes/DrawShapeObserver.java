@@ -4,7 +4,6 @@ import model.interfaces.IDraw;
 import model.interfaces.IShapeObserver;
 import model.shapes.ShapeData.ShapeList;
 import model.shapes.ShapeData.ShapeObject;
-import model.shapes.ShapeEnums.ColorAdaptor;
 import view.gui.PaintCanvas;
 
 import java.awt.*;
@@ -22,8 +21,15 @@ public class DrawShapeObserver implements IShapeObserver {
         this.shapeList.registerObserver(this);
     }
 
+    private void clearCanvas(){
+        Graphics whiteRecForClearing = canvas.getGraphics2D();  //draw white rectangle over canvas to clear
+        whiteRecForClearing.setColor(Color.white);
+        whiteRecForClearing.fillRect(0,0, 1200, 800);
+    }
+
     @Override
     public void update() {
+        clearCanvas();
         for(ShapeObject shape : shapeList.getList()){
             IDraw drawStrategy;
             switch (shape.getShapeType()) {

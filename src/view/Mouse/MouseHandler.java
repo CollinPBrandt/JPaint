@@ -3,6 +3,7 @@ package view.Mouse;
 import controller.Commands.CreateShapeCommand;
 import controller.Commands.MoveShapeCommand;
 import controller.Commands.SelectShapeCommand;
+import controller.ShapeListManager;
 import model.interfaces.ICommand;
 import model.interfaces.IShapeObserver;
 import model.persistence.ApplicationState;
@@ -26,27 +27,25 @@ public class MouseHandler extends MouseAdapter {
     private ICommand command;
     private ApplicationState appState;
     private PaintCanvas canvas;
-    private ShapeList shapeList;
-    private SelectedShapeList selectedShapeList;
+    private ShapeListManager shapeListManager;
 
     public MouseHandler(PaintCanvas canvas, ApplicationState appState){
         this.canvas = canvas;
         this.appState = appState;
-        shapeList = new ShapeList();
-        selectedShapeList = new SelectedShapeList();
-        IShapeObserver shapeObserver = new DrawShapeObserver(shapeList, canvas); //will self register to shapeList
+        this.shapeListManager = appState.getShapeListManager();
+        IShapeObserver shapeObserver = new DrawShapeObserver(shapeListManager.getShapeListObject(), canvas); //will self register to shapeList
     }
 
     private void setCommand() {
         switch (appState.getActiveStartAndEndPointMode()) {
             case DRAW:
-                this.command = new CreateShapeCommand(new MouseDragDimensions(startX, startY, width, height), appState, shapeList);
+                this.command = new CreateShapeCommand(new MouseDragDimensions(startX, startY, width, height), appState, shapeListManager.getShapeListObject());
                 break;
             case SELECT:
-                this.command = new SelectShapeCommand(new MouseDragDimensions(startX, startY, width, height), shapeList, selectedShapeList);
+                this.command = new SelectShapeCommand(new MouseDragDimensions(startX, startY, width, height), shapeListManager.getShapeListObject(), shapeListManager.getSelectedShapeListObject());
                 break;
             case MOVE:
-                this.command = new MoveShapeCommand(new MouseDragDimensions(startX, startY, width, height), dragDirectionRight, dragDirectionDown, selectedShapeList);
+                this.command = new MoveShapeCommand(new MouseDragDimensions(startX, startY, width, height), dragDirectionRight, dragDirectionDown, shapeListManager);
                 break;
             default:
                 break;
@@ -80,17 +79,10 @@ public class MouseHandler extends MouseAdapter {
             endY = tempY;
             dragDirectionDown = false;
         }
-
         width = endX - startX;
         height = endY - startY;
 
         setCommand();
         command.execute();
-
-        Graphics whiteRecForClearing = canvas.getGraphics2D();  //draw white rectangle over canvas to clear
-        whiteRecForClearing.setColor(Color.white);
-        whiteRecForClearing.fillRect(0,0, 1200, 800);
-
-        shapeList.notifyObservers();    //redraw everything after clear
     }
 }

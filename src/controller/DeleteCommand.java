@@ -1,4 +1,4 @@
-/*package controller;
+package controller;
 
 import model.interfaces.ICommand;
 import model.shapes.ShapeData.ShapeObject;
@@ -17,4 +17,4 @@ public class DeleteCommand implements ICommand {
             shapeListManager.getShapeListObject().removeShape(shape);
         }
     }
-}*/
+}

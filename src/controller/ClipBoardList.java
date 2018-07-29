@@ -1,4 +1,4 @@
-/*package controller;
+package controller;
 
 import model.shapes.ShapeData.ShapeObject;
 
@@ -17,4 +17,3 @@ public class ClipBoardList {
 
     public void removeShape(ShapeObject shape){clipBoard.remove(shape);}
 }
-*/

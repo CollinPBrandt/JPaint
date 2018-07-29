@@ -1,5 +1,6 @@
 package controller.Commands;
 
+import controller.ShapeListManager;
 import model.shapes.SelectedShapeList;
 import model.shapes.ShapeData.ShapeObject;
 import view.Mouse.MouseDragDimensions;
@@ -8,13 +9,13 @@ import model.interfaces.ICommand;
 public class MoveShapeCommand implements ICommand {
 
     private MouseDragDimensions dimensions;
-    private SelectedShapeList selectedShapeList;
+    private ShapeListManager shapeListManager;
     private boolean draggedRight;
     private boolean draggedDown;
 
-    public MoveShapeCommand(MouseDragDimensions dimensions, boolean draggedRight, boolean draggedDown, SelectedShapeList selectedShapeList) {
+    public MoveShapeCommand(MouseDragDimensions dimensions, boolean draggedRight, boolean draggedDown, ShapeListManager shapeListManager) {
         this.dimensions = dimensions;
-        this.selectedShapeList = selectedShapeList;
+        this.shapeListManager = shapeListManager;
         this.draggedRight = draggedRight;
         this.draggedDown = draggedDown;
     }
@@ -25,7 +26,7 @@ public class MoveShapeCommand implements ICommand {
     }
 
     private void moveShape(){
-        for(ShapeObject shape : selectedShapeList.getList()){
+        for(ShapeObject shape : shapeListManager.getSelectedShapeListObject().getList()){
             if(draggedRight && draggedDown){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() + dimensions.getWidth(),
@@ -49,5 +50,6 @@ public class MoveShapeCommand implements ICommand {
                         shape.getDimensions().getStartY() - dimensions.getHeight());
             }
         }
+        shapeListManager.getShapeListObject().notifyObservers();    //clear and redraw everything after move
     }
 }

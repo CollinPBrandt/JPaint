@@ -2,6 +2,7 @@ package main;
 
 import controller.IJPaintController;
 import controller.JPaintController;
+import controller.ShapeListManager;
 import model.persistence.ApplicationState;
 import view.gui.PaintCanvas;
 import view.gui.Gui;
@@ -13,7 +14,7 @@ public class Main {
     public static void main(String[] args){
         IGuiWindow guiWindow = new GuiWindow(new PaintCanvas());
         IUiModule uiModule = new Gui(guiWindow);
-        ApplicationState appState = new ApplicationState(uiModule);
+        ApplicationState appState = new ApplicationState(uiModule, new ShapeListManager());
         IJPaintController controller = new JPaintController(uiModule, appState);
         controller.setup();
 
