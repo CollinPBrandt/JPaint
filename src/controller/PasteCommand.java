@@ -15,9 +15,9 @@ public class PasteCommand implements ICommand {
     public void execute() {
         for(ShapeObject shape : shapeListManager.getClipBoardListObject().getList()){
             shape.getDimensions().setStartX(0);
-            shape.getDimensions().setStartX(0);
+            shape.getDimensions().setStartY(0);
             shapeListManager.getShapeListObject().addShape(shape);
-            shapeListManager.getClipBoardListObject().removeShape(shape);
         }
+        shapeListManager.getClipBoardListObject().getList().clear();
     }
 }

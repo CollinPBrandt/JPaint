@@ -13,7 +13,7 @@ public class CopyCommand implements ICommand {
 
     @Override
     public void execute() {
-        for(ShapeObject shape : shapeListManager.getClipBoardListObject().getList()){
+        for(ShapeObject shape : shapeListManager.getSelectedShapeListObject().getList()){
             shapeListManager.getClipBoardListObject().addShape(shape);
         }
     }
