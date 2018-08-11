@@ -13,6 +13,7 @@ public class CopyCommand implements ICommand {
     }
 
     @Override
+    /*Clear clipBoardList and then fill it with the shapes in selectedShapeList*/
     public void execute() {
         shapeListManager.getClipBoardListObject().getList().clear();
         for(ShapeObject shape : shapeListManager.getSelectedShapeListObject().getList()){
