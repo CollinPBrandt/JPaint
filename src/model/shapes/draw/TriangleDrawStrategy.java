@@ -1,18 +1,18 @@
 package model.shapes.draw;
 
-import model.interfaces.IDraw;
+import model.interfaces.IDrawStrategy;
 import model.shapes.data.ShapeObject;
 import model.shapes.data.ColorAdaptor;
 import view.gui.PaintCanvas;
 
 import java.awt.*;
 
-public class TriangleDraw implements IDraw {
+public class TriangleDrawStrategy implements IDrawStrategy {
 
     private final ShapeObject shape;
     private final PaintCanvas canvas;
 
-    public TriangleDraw(ShapeObject shape, PaintCanvas canvas) {
+    public TriangleDrawStrategy(ShapeObject shape, PaintCanvas canvas) {
         this.shape = shape;
         this.canvas = canvas;
     }

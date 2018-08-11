@@ -1,6 +1,6 @@
 package model.shapes.draw;
 
-import model.interfaces.IDraw;
+import model.interfaces.IDrawStrategy;
 import model.shapes.data.ShapeObject;
 import model.shapes.data.ColorAdaptor;
 import view.gui.PaintCanvas;
@@ -8,12 +8,12 @@ import view.gui.PaintCanvas;
 import javax.swing.*;
 import java.awt.*;
 
-public class EllipseDraw extends JPanel implements IDraw {
+public class EllipseDrawStrategy implements IDrawStrategy {
 
     private final ShapeObject shape;
     private final PaintCanvas canvas;
 
-    public EllipseDraw(ShapeObject shape, PaintCanvas canvas) {
+    public EllipseDrawStrategy(ShapeObject shape, PaintCanvas canvas) {
         this.shape = shape;
         this.canvas = canvas;
     }

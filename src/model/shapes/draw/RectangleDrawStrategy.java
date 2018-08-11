@@ -1,18 +1,18 @@
 package model.shapes.draw;
 
-import model.interfaces.IDraw;
+import model.interfaces.IDrawStrategy;
 import model.shapes.data.ShapeObject;
 import model.shapes.data.ColorAdaptor;
 import view.gui.PaintCanvas;
 
 import java.awt.*;
 
-public class RectangleDraw implements IDraw {
+public class RectangleDrawStrategy implements IDrawStrategy {
 
     private final ShapeObject shape;
     private final PaintCanvas canvas;
 
-    public RectangleDraw(ShapeObject shape, PaintCanvas canvas) {
+    public RectangleDrawStrategy(ShapeObject shape, PaintCanvas canvas) {
         this.shape = shape;
         this.canvas = canvas;
     }

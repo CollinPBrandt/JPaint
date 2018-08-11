@@ -1,5 +1,5 @@
 package model.interfaces;
 
-public interface IDraw {
+public interface IDrawStrategy {
     void paint();
 }

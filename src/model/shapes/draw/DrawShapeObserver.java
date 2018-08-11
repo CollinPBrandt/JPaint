@@ -1,6 +1,6 @@
 package model.shapes.draw;
 
-import model.interfaces.IDraw;
+import model.interfaces.IDrawStrategy;
 import model.interfaces.IShapeObserver;
 import controller.lists.ShapeList;
 import model.shapes.data.ShapeObject;
@@ -12,6 +12,7 @@ public class DrawShapeObserver implements IShapeObserver {
 
     private ShapeList shapeList;
     private PaintCanvas canvas;
+    private IDrawStrategy drawStrategy;
 
     public DrawShapeObserver(ShapeList shapeList, PaintCanvas canvas){
         this.shapeList = shapeList;
@@ -19,33 +20,42 @@ public class DrawShapeObserver implements IShapeObserver {
         this.shapeList.registerObserver(this);
     }
 
+    /*Draw white rectangle over canvas to clear (worst paint application ever)*/
     private void clearCanvas(){
-        //Draw white rectangle over canvas to clear
         Graphics whiteRecForClearing = canvas.getGraphics2D();
         whiteRecForClearing.setColor(Color.white);
         whiteRecForClearing.fillRect(0,0, 1200, 800);
     }
 
     @Override
+    /*Observer updated when ShapeList(subject) is changed. Iterates through shapeList and draws each*/
     public void update() {
         clearCanvas();
-        IDraw drawStrategy;
-        for(ShapeObject shape : shapeList.getList()){
-            switch (shape.getShapeType()) {
-                case ELLIPSE:
-                    drawStrategy = new EllipseDraw(shape, canvas);
-                    break;
-                case RECTANGLE:
-                    drawStrategy = new RectangleDraw(shape, canvas);
-                    break;
-                case TRIANGLE:
-                    drawStrategy = new TriangleDraw(shape, canvas);
-                    break;
-                default:
-                    drawStrategy = new EllipseDraw(shape, canvas);   //default is to draw Ellipse
-                    break;
-            }
-            drawStrategy.paint();
+        for (ShapeObject shape : shapeList.getList()) {
+            setDrawStrategy(shape);
+            drawDrawStrategy();
         }
     }
+
+    /*sets drawStrategy according to the shapeType of parameter shape*/
+    private IDrawStrategy setDrawStrategy(ShapeObject shape) {
+        switch (shape.getShapeType()) {
+            case ELLIPSE:
+                drawStrategy = new EllipseDrawStrategy(shape, canvas);
+                break;
+            case RECTANGLE:
+                drawStrategy = new RectangleDrawStrategy(shape, canvas);
+                break;
+            case TRIANGLE:
+                drawStrategy = new TriangleDrawStrategy(shape, canvas);
+                break;
+        }
+        return drawStrategy;
+    }
+
+    /*Draws each shape according to algorithm outlined in each IDrawStrategy*/
+    private void drawDrawStrategy(){
+        drawStrategy.paint();
+    }
+
 }
