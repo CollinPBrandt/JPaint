@@ -23,30 +23,31 @@ public class MoveShapeCommand implements ICommand, IUndoable {
     @Override
     public void execute() {
         moveShape();
+        CommandHistory.add(this);
     }
 
-    /**/
+    /*Moves shape according to direction and dimensions of drag*/
     private void moveShape(){
         for(ShapeObject shape : shapeListManager.getSelectedShapeListObject().getList()){
-            //if the shape was draw by dragging top left to bottom right
+            //if the move was draw by dragging top left to bottom right
             if(draggedRight && draggedDown){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() + dimensions.getWidth(),
                         shape.getDimensions().getStartY() + dimensions.getHeight());
             }
-            //if the shape was drawn by dragging bottom left to top right
+            //if the move was drawn by dragging bottom left to top right
             else if(draggedRight){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() + dimensions.getWidth(),
                         shape.getDimensions().getStartY() - dimensions.getHeight());
             }
-            //if the shape was drawn by dragging top right to bottom left
+            //if the move was drawn by dragging top right to bottom left
             else if(draggedDown){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() - dimensions.getWidth(),
                         shape.getDimensions().getStartY() + dimensions.getHeight());
             }
-            //if the shape was drawn by dragging bottom right to top left
+            //if the move was drawn by dragging bottom right to top left
             else{
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() - dimensions.getWidth(),
@@ -54,29 +55,31 @@ public class MoveShapeCommand implements ICommand, IUndoable {
             }
         }
         shapeListManager.getShapeListObject().notifyObservers();    //clear and redraw everything after move
-        CommandHistory.add(this);
     }
 
     @Override
+    /*Undo via same method as moveShape but moving in the opposite direction*/
     public void undo() {
         for(ShapeObject shape : shapeListManager.getSelectedShapeListObject().getList()){
+            //if the move was draw by dragging top left to bottom right
             if(draggedRight && draggedDown){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() - dimensions.getWidth(),
                         shape.getDimensions().getStartY() - dimensions.getHeight());
             }
+            //if the move was drawn by dragging bottom left to top right
             else if(draggedRight){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() - dimensions.getWidth(),
                         shape.getDimensions().getStartY() + dimensions.getHeight());
             }
-
+            //if the move was drawn by dragging top right to bottom left
             else if(draggedDown){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() + dimensions.getWidth(),
                         shape.getDimensions().getStartY() - dimensions.getHeight());
             }
-
+            //if the move was drawn by dragging bottom right to top left
             else{
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() + dimensions.getWidth(),

@@ -23,12 +23,16 @@ public class CreateShapeCommand implements ICommand, IUndoable {
     }
 
     @Override
-    /*Get shape config, create new shape with that config and dimensions passed into object, and add shape to shapeList*/
     public void execute() {
+        createShape();
+        CommandHistory.add(this);
+    }
+
+    /*Get shape config, create new shape with that config and dimensions passed into object, and add shape to shapeList*/
+    private void createShape(){
         ShapeConfiguration shapeConfig = appState.getCurrentShapeConfiguration();
         shape = new ShapeObject(dimensions, shapeConfig);
         shapeList.addShape(shape);
-        CommandHistory.add(this);
     }
 
     @Override
@@ -38,7 +42,6 @@ public class CreateShapeCommand implements ICommand, IUndoable {
 
     @Override
     public void redo() {
-        execute();
-
+        createShape();
     }
 }
