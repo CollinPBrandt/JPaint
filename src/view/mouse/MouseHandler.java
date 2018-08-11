@@ -30,7 +30,7 @@ public class MouseHandler extends MouseAdapter {
         this.canvas = canvas;
         this.appState = appState;
         this.shapeListManager = appState.getShapeListManager();
-        IShapeObserver shapeObserver = new DrawShapeObserver(shapeListManager.getShapeListObject(), canvas); //will self register to shapeList
+        new DrawShapeObserver(shapeListManager.getShapeListObject(), canvas); //will self register to shapeList
     }
 
     private void setCommand() {

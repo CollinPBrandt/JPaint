@@ -33,7 +33,6 @@ public class RectangleDraw implements IDraw {
             case OUTLINE_AND_FILLED_IN:
                 g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
                 g.fillRect(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
-                g.setColor(Color.black);
                 g.setColor(ColorAdaptor.ChangeColor(shape, 's'));
                 g.drawRect(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
                 break;

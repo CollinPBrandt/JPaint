@@ -34,7 +34,6 @@ public class EllipseDraw extends JPanel implements IDraw {
             case OUTLINE_AND_FILLED_IN:
                 g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
                 g.fillOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
-                g.setColor(Color.black);
                 g.setColor(ColorAdaptor.ChangeColor(shape, 's'));
                 g.drawOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth() - 1 , shape.getDimensions().getHeight() - 1); //looks better with 1px smaller outline
                 break;
