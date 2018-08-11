@@ -11,18 +11,20 @@ public class TriangleDraw implements IDraw {
 
     private final ShapeObject shape;
     private final PaintCanvas canvas;
-    private final Graphics g;
 
-    public TriangleDraw(ShapeObject shape, PaintCanvas canvas, Graphics g) {
+    public TriangleDraw(ShapeObject shape, PaintCanvas canvas) {
         this.shape = shape;
         this.canvas = canvas;
-        this.g = g;
     }
 
     @Override
-    public void paint(Graphics g) {
+    public void paint() {
+        //create new graphic on canvas
+        Graphics g = canvas.getGraphics2D();
+        //create three sides needed for drawPolygon and fillPolygon functions
         int[] sideA = {shape.getDimensions().getStartX(), shape.getDimensions().getStartX() + shape.getDimensions().getWidth(), shape.getDimensions().getStartX()};
         int[] sideB = {shape.getDimensions().getStartY(), shape.getDimensions().getStartY() + shape.getDimensions().getHeight(), shape.getDimensions().getStartY() + shape.getDimensions().getHeight()};
+        //draw polygon shading type depending on shading type
         switch(shape.getShapeShadingType()){
             case FILLED_IN:
                 g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
@@ -37,8 +39,6 @@ public class TriangleDraw implements IDraw {
                 g.fillPolygon(sideA, sideB, 3);
                 g.setColor(ColorAdaptor.ChangeColor(shape, 's'));
                 g.drawPolygon(sideA, sideB, 3);
-                break;
-            default:
                 break;
         }
     }

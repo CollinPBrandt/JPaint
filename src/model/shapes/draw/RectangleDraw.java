@@ -11,16 +11,17 @@ public class RectangleDraw implements IDraw {
 
     private final ShapeObject shape;
     private final PaintCanvas canvas;
-    private final Graphics g;
 
-    public RectangleDraw(ShapeObject shape, PaintCanvas canvas, Graphics g) {
+    public RectangleDraw(ShapeObject shape, PaintCanvas canvas) {
         this.shape = shape;
         this.canvas = canvas;
-        this.g = g;
     }
 
     @Override
-    public void paint(Graphics g) {
+    public void paint() {
+        //create new graphic on canvas
+        Graphics g = canvas.getGraphics2D();
+        //draw ellipse depending on shape shading type
         switch(shape.getShapeShadingType()){
             case FILLED_IN:
                 g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
@@ -35,8 +36,6 @@ public class RectangleDraw implements IDraw {
                 g.fillRect(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
                 g.setColor(ColorAdaptor.ChangeColor(shape, 's'));
                 g.drawRect(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
-                break;
-            default:
                 break;
         }
     }

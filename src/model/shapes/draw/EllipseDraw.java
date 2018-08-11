@@ -12,16 +12,17 @@ public class EllipseDraw extends JPanel implements IDraw {
 
     private final ShapeObject shape;
     private final PaintCanvas canvas;
-    private final Graphics g;
 
-    public EllipseDraw(ShapeObject shape, PaintCanvas canvas, Graphics g) {
+    public EllipseDraw(ShapeObject shape, PaintCanvas canvas) {
         this.shape = shape;
         this.canvas = canvas;
-        this.g = g;
     }
 
     @Override
-    public void paint(Graphics g) {
+    public void paint() {
+        //create new graphic on canvas
+        Graphics g = canvas.getGraphics2D();
+        //Draw ellipse depending on shape shading type
         switch(shape.getShapeShadingType()){
             case FILLED_IN:
                 g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
@@ -36,8 +37,6 @@ public class EllipseDraw extends JPanel implements IDraw {
                 g.fillOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
                 g.setColor(ColorAdaptor.ChangeColor(shape, 's'));
                 g.drawOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth() - 1 , shape.getDimensions().getHeight() - 1); //looks better with 1px smaller outline
-                break;
-            default:
                 break;
         }
     }
