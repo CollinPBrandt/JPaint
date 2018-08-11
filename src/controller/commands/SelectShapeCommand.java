@@ -1,5 +1,6 @@
 package controller.commands;
 
+import controller.interfaces.IUndoable;
 import controller.lists.ShapeListManager;
 import model.interfaces.ICommand;
 import controller.lists.SelectedShapeList;

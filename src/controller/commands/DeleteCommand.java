@@ -15,14 +15,20 @@ public class DeleteCommand implements ICommand, IUndoable {
 
     @Override
     public void execute() {
+        deleteShape();
+        CommandHistory.add(this);
+    }
+
+    private void deleteShape(){
+        /*Iterate over selected shapes and remove each shape from shapeList*/
         for(ShapeObject shape : shapeListManager.getSelectedShapeListObject().getList()){
             shapeListManager.getShapeListObject().removeShape(shape);
         }
-        CommandHistory.add(this);
     }
 
     @Override
     public void undo() {
+        /*Iterate over selected shapes and add each shape to shapeList*/
         for(ShapeObject shape : shapeListManager.getSelectedShapeListObject().getList()){
             shapeListManager.getShapeListObject().addShape(shape);
         }
@@ -30,6 +36,6 @@ public class DeleteCommand implements ICommand, IUndoable {
 
     @Override
     public void redo() {
-        execute();
+        deleteShape();
     }
 }
