@@ -25,25 +25,28 @@ public class MoveShapeCommand implements ICommand, IUndoable {
         moveShape();
     }
 
+    /**/
     private void moveShape(){
         for(ShapeObject shape : shapeListManager.getSelectedShapeListObject().getList()){
+            //if the shape was draw by dragging top left to bottom right
             if(draggedRight && draggedDown){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() + dimensions.getWidth(),
                         shape.getDimensions().getStartY() + dimensions.getHeight());
             }
+            //if the shape was drawn by dragging bottom left to top right
             else if(draggedRight){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() + dimensions.getWidth(),
                         shape.getDimensions().getStartY() - dimensions.getHeight());
             }
-
+            //if the shape was drawn by dragging top right to bottom left
             else if(draggedDown){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() - dimensions.getWidth(),
                         shape.getDimensions().getStartY() + dimensions.getHeight());
             }
-
+            //if the shape was drawn by dragging bottom right to top left
             else{
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() - dimensions.getWidth(),

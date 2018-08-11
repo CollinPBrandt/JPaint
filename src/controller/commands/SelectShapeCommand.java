@@ -1,5 +1,6 @@
 package controller.commands;
 
+import controller.lists.ShapeListManager;
 import model.interfaces.ICommand;
 import controller.lists.SelectedShapeList;
 import model.shapes.data.ShapeObject;
@@ -12,20 +13,19 @@ public class SelectShapeCommand implements ICommand {
     private MouseDragDimensions selectDimensions;
     private SelectedShapeList selectedShapeList;
 
-    public SelectShapeCommand(MouseDragDimensions selectDimensions, ShapeList shapeList, SelectedShapeList selectedShapeList) {
-        this.shapeList = shapeList;
+    public SelectShapeCommand(MouseDragDimensions selectDimensions, ShapeListManager shapeListManager) {
         this.selectDimensions = selectDimensions;
-        this.selectedShapeList = selectedShapeList;
+        this.shapeList = shapeListManager.getShapeListObject();
+        this.selectedShapeList = shapeListManager.getSelectedShapeListObject();
     }
 
     public void findSelectedShapes(){
         for(ShapeObject shape : shapeList.getList()){
-            if (shape.getDimensions().getStartX() >= selectDimensions.getStartX() &&
-                shape.getDimensions().getStartY() >= selectDimensions.getStartY() &&
-                shape.getDimensions().getStartX() + shape.getDimensions().getWidth() <= selectDimensions.getStartX() + selectDimensions.getWidth() &&
-                shape.getDimensions().getStartY() + shape.getDimensions().getHeight() <= selectDimensions.getStartY() + selectDimensions.getHeight())
-                {selectedShapeList.addShape(shape);
-            }
+            if (shape.getDimensions().getStartX()+ shape.getDimensions().getWidth() >= selectDimensions.getStartX() && //if select x is to left(lower x val) of shape
+                shape.getDimensions().getStartY()+ shape.getDimensions().getWidth() >= selectDimensions.getStartY() &&//if select y is above(lower y val) of shape
+                shape.getDimensions().getStartX() <= selectDimensions.getStartX() + selectDimensions.getWidth() && //if select release is to right(higher x val) of shape
+                shape.getDimensions().getStartY() <= selectDimensions.getStartY() + selectDimensions.getHeight()) //if select release is to below(higher x val) of shape
+                {selectedShapeList.addShape(shape); }
         }
     }
 

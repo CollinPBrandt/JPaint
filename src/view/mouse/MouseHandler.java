@@ -23,63 +23,74 @@ public class MouseHandler extends MouseAdapter {
     private boolean dragDirectionDown;
     private ICommand command;
     private ApplicationState appState;
-    private PaintCanvas canvas;
     private ShapeListManager shapeListManager;
 
     public MouseHandler(PaintCanvas canvas, ApplicationState appState){
-        this.canvas = canvas;
         this.appState = appState;
         this.shapeListManager = appState.getShapeListManager();
-        new DrawShapeObserver(shapeListManager.getShapeListObject(), canvas); //will self register to shapeList
+        //Observer of ShapeList that will self register to shapeList
+        new DrawShapeObserver(shapeListManager.getShapeListObject(), canvas);
     }
 
+    /*Set ICommand to concrete command according to the application state's ActiveStartAndEndPointMode*/
     private void setCommand() {
         switch (appState.getActiveStartAndEndPointMode()) {
             case DRAW:
-                this.command = new CreateShapeCommand(new MouseDragDimensions(startX, startY, width, height), appState, shapeListManager.getShapeListObject());
+                command = new CreateShapeCommand(new MouseDragDimensions(startX, startY, width, height), appState, shapeListManager);
                 break;
             case SELECT:
-                this.command = new SelectShapeCommand(new MouseDragDimensions(startX, startY, width, height), shapeListManager.getShapeListObject(), shapeListManager.getSelectedShapeListObject());
+                command = new SelectShapeCommand(new MouseDragDimensions(startX, startY, width, height), shapeListManager);
                 break;
             case MOVE:
-                this.command = new MoveShapeCommand(new MouseDragDimensions(startX, startY, width, height), dragDirectionRight, dragDirectionDown, shapeListManager);
-                break;
-            default:
+                command = new MoveShapeCommand(new MouseDragDimensions(startX, startY, width, height), dragDirectionRight, dragDirectionDown, shapeListManager);
                 break;
         }
     }
 
+    private void invoker(){
+        command.execute();
+    }
+
+
     @Override
+    /*Gets the X and Y coordinates of where the mouse was first clicked and held*/
     public void mousePressed(MouseEvent e) {
         startX = e.getX();
         startY = e.getY();
     }
 
     @Override
+    /*Gets X and Y coordinates of where mouse is released and calculates the difference between
+    * released and first pressed to get Height and Width. Then sets flags to determine direction
+    * of drag and each shape start/end set as if dragged top left to bottom right. Sets and calls
+    * command after setting these variables*/
     public void mouseReleased(MouseEvent e) {
+        //released coordinates
         int endX = e.getX();
         int endY = e.getY();
         int tempX;
         int tempY;
+        //drag direction flags
         dragDirectionRight = true;
         dragDirectionDown = true;
-
+        //determine horizontal drag direction
         if(startX > endX) {
             tempX = startX;
             startX = endX;
             endX = tempX;
             dragDirectionRight = false;
-        }
+        }//determine vertical drag direction
         if(startY > endY){
             tempY = startY;
             startY = endY;
             endY = tempY;
             dragDirectionDown = false;
-        }
+        }//set height and width
         width = endX - startX;
         height = endY - startY;
 
+        //set command and execute it
         setCommand();
-        command.execute();
+        invoker();
     }
 }

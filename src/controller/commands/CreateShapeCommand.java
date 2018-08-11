@@ -1,6 +1,7 @@
 package controller.commands;
 
 import controller.interfaces.IUndoable;
+import controller.lists.ShapeListManager;
 import view.mouse.MouseDragDimensions;
 import model.interfaces.ICommand;
 import model.persistence.ApplicationState;
@@ -15,13 +16,14 @@ public class CreateShapeCommand implements ICommand, IUndoable {
     private ShapeList shapeList;
     private ShapeObject shape;
 
-    public CreateShapeCommand(MouseDragDimensions dimensions, ApplicationState appState, ShapeList shapeList) {
+    public CreateShapeCommand(MouseDragDimensions dimensions, ApplicationState appState, ShapeListManager shapeListManager) {
         this.dimensions = dimensions;
         this.appState = appState;
-        this.shapeList = shapeList;
+        this.shapeList = shapeListManager.getShapeListObject();
     }
 
     @Override
+    /*Get shape config, create new shape with that config and dimensions passed into object, and add shape to shapeList*/
     public void execute() {
         ShapeConfiguration shapeConfig = appState.getCurrentShapeConfiguration();
         shape = new ShapeObject(dimensions, shapeConfig);
