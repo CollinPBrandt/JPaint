@@ -55,7 +55,7 @@ public class DrawShapeObserver implements IShapeObserver {
 
     /*Draws each shape according to algorithm outlined in each IDrawStrategy*/
     private void drawDrawStrategy(){
-        drawStrategy.paint();
+        drawStrategy.draw();
     }
 
 }

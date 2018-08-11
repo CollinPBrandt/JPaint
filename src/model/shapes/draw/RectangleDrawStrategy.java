@@ -18,7 +18,7 @@ public class RectangleDrawStrategy implements IDrawStrategy {
     }
 
     @Override
-    public void paint() {
+    public void draw() {
         //create new graphic on canvas
         Graphics g = canvas.getGraphics2D();
         //draw ellipse depending on shape shading type

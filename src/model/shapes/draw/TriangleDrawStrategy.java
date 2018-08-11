@@ -18,7 +18,7 @@ public class TriangleDrawStrategy implements IDrawStrategy {
     }
 
     @Override
-    public void paint() {
+    public void draw() {
         //create new graphic on canvas
         Graphics g = canvas.getGraphics2D();
         //create three sides needed for drawPolygon and fillPolygon functions
