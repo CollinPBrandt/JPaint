@@ -1,9 +1,9 @@
 package controller.commands;
 
 import controller.interfaces.IUndoable;
-import controller.lists.ShapeListManager;
-import model.interfaces.ICommand;
-import model.shapes.data.ShapeObject;
+import model.persistence.lists.ShapeListManager;
+import controller.interfaces.ICommand;
+import model.shapes.shapedata.ShapeObject;
 
 public class DeleteCommand implements ICommand, IUndoable {
 

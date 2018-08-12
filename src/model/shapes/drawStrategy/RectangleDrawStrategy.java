@@ -1,8 +1,8 @@
-package model.shapes.draw;
+package model.shapes.drawStrategy;
 
 import model.interfaces.IDrawStrategy;
-import model.shapes.data.ShapeObject;
-import model.shapes.data.ColorAdaptor;
+import model.shapes.shapedata.ShapeObject;
+import model.shapes.shapedata.ColorAdaptor;
 import view.gui.PaintCanvas;
 
 import java.awt.*;
@@ -21,7 +21,7 @@ public class RectangleDrawStrategy implements IDrawStrategy {
     public void draw() {
         //create new graphic on canvas
         Graphics g = canvas.getGraphics2D();
-        //draw ellipse depending on shape shading type
+        //drawStrategy ellipse depending on shape shading type
         switch(shape.getShapeShadingType()){
             case FILLED_IN:
                 g.setColor(ColorAdaptor.adaptColor(shape.getShapePrimaryColor()));

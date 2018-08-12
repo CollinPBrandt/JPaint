@@ -1,10 +1,10 @@
 package model.persistence;
 
-import controller.lists.ShapeListManager;
+import model.persistence.lists.ShapeListManager;
 import model.dialogs.DialogProvider;
 import model.interfaces.IApplicationState;
 import model.interfaces.IDialogProvider;
-import model.shapes.data.ShapeConfiguration;
+import model.shapes.shapedata.ShapeConfiguration;
 import model.shapes.enums.ShapeColor;
 import model.shapes.enums.ShapeShadingType;
 import model.shapes.enums.ShapeType;

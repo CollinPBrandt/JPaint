@@ -1,13 +1,13 @@
 package controller.commands;
 
 import controller.interfaces.IUndoable;
-import controller.lists.ShapeListManager;
+import model.persistence.lists.ShapeListManager;
 import view.mouse.MouseDragDimensions;
-import model.interfaces.ICommand;
+import controller.interfaces.ICommand;
 import model.persistence.ApplicationState;
-import model.shapes.data.ShapeConfiguration;
-import controller.lists.ShapeList;
-import model.shapes.data.ShapeObject;
+import model.shapes.shapedata.ShapeConfiguration;
+import model.persistence.lists.ShapeList;
+import model.shapes.shapedata.ShapeObject;
 
 public class CreateShapeCommand implements ICommand, IUndoable {
 

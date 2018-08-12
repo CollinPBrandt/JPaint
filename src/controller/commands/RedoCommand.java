@@ -1,6 +1,6 @@
 package controller.commands;
 
-import model.interfaces.ICommand;
+import controller.interfaces.ICommand;
 
 public class RedoCommand implements ICommand {
     @Override

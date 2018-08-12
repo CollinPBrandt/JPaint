@@ -1,10 +1,10 @@
 package controller.commands;
 
 import controller.interfaces.IUndoable;
-import controller.lists.ShapeListManager;
-import model.shapes.data.ShapeObject;
+import model.persistence.lists.ShapeListManager;
+import model.shapes.shapedata.ShapeObject;
 import view.mouse.MouseDragDimensions;
-import model.interfaces.ICommand;
+import controller.interfaces.ICommand;
 
 public class MoveShapeCommand implements ICommand, IUndoable {
 
@@ -29,7 +29,7 @@ public class MoveShapeCommand implements ICommand, IUndoable {
     /*Moves shape according to direction and dimensions of drag*/
     private void moveShape(){
         for(ShapeObject shape : shapeListManager.getSelectedShapeListObject().getList()){
-            //if the move was draw by dragging top left to bottom right
+            //if the move was drawStrategy by dragging top left to bottom right
             if(draggedRight && draggedDown){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() + dimensions.getWidth(),
@@ -61,7 +61,7 @@ public class MoveShapeCommand implements ICommand, IUndoable {
     /*Undo via same method as moveShape but moving in the opposite direction*/
     public void undo() {
         for(ShapeObject shape : shapeListManager.getSelectedShapeListObject().getList()){
-            //if the move was draw by dragging top left to bottom right
+            //if the move was drawStrategy by dragging top left to bottom right
             if(draggedRight && draggedDown){
                 shape.changeShapeStart(
                         shape.getDimensions().getStartX() - dimensions.getWidth(),

@@ -1,8 +1,8 @@
 package controller.commands;
 
-import controller.lists.ShapeListManager;
-import model.interfaces.ICommand;
-import model.shapes.data.ShapeObject;
+import model.persistence.lists.ShapeListManager;
+import controller.interfaces.ICommand;
+import model.shapes.shapedata.ShapeObject;
 
 public class CopyCommand implements ICommand {
 

@@ -1,6 +1,6 @@
-package controller.lists;
+package model.persistence.lists;
 
-import controller.interfaces.IList;
+import model.interfaces.IList;
 
 public class ShapeListManager {
     private ShapeList shapeList;

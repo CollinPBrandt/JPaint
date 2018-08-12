@@ -1,6 +1,6 @@
 package model.interfaces;
 
-import controller.lists.ShapeListManager;
+import model.persistence.lists.ShapeListManager;
 import model.shapes.enums.ShapeColor;
 import model.shapes.enums.ShapeShadingType;
 import model.shapes.enums.ShapeType;

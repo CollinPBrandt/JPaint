@@ -1,8 +1,8 @@
 package controller.commands;
 
 import model.interfaces.IApplicationState;
-import model.interfaces.ICommand;
-import model.shapes.data.ShapeObject;
+import controller.interfaces.ICommand;
+import model.shapes.shapedata.ShapeObject;
 import model.shapes.enums.ShapeColor;
 
 public class ChangePrimaryColorCommand implements ICommand {

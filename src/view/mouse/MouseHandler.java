@@ -3,11 +3,10 @@ package view.mouse;
 import controller.commands.CreateShapeCommand;
 import controller.commands.MoveShapeCommand;
 import controller.commands.SelectShapeCommand;
-import controller.lists.ShapeListManager;
-import model.interfaces.ICommand;
-import model.interfaces.IShapeObserver;
+import model.persistence.lists.ShapeListManager;
+import controller.interfaces.ICommand;
 import model.persistence.ApplicationState;
-import model.shapes.draw.DrawShapeObserver;
+import model.shapes.drawStrategy.DrawShapeObserver;
 import view.gui.PaintCanvas;
 
 import java.awt.event.MouseAdapter;

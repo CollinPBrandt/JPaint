@@ -2,7 +2,7 @@ package main;
 
 import controller.interfaces.IJPaintController;
 import controller.JPaintController;
-import controller.lists.ShapeListManager;
+import model.persistence.lists.ShapeListManager;
 import model.persistence.ApplicationState;
 import view.gui.PaintCanvas;
 import view.gui.Gui;

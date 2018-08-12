@@ -1,9 +1,9 @@
-package controller.lists;
+package model.persistence.lists;
 
-import controller.interfaces.IList;
+import model.interfaces.IList;
 import model.interfaces.IShapeListSubject;
 import model.interfaces.IShapeObserver;
-import model.shapes.data.ShapeObject;
+import model.shapes.shapedata.ShapeObject;
 
 import java.util.ArrayList;
 import java.util.List;

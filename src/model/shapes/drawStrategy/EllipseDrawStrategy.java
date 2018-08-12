@@ -1,11 +1,10 @@
-package model.shapes.draw;
+package model.shapes.drawStrategy;
 
 import model.interfaces.IDrawStrategy;
-import model.shapes.data.ShapeObject;
-import model.shapes.data.ColorAdaptor;
+import model.shapes.shapedata.ShapeObject;
+import model.shapes.shapedata.ColorAdaptor;
 import view.gui.PaintCanvas;
 
-import javax.swing.*;
 import java.awt.*;
 
 public class EllipseDrawStrategy implements IDrawStrategy {

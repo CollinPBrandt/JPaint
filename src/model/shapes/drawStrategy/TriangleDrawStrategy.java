@@ -1,8 +1,8 @@
-package model.shapes.draw;
+package model.shapes.drawStrategy;
 
 import model.interfaces.IDrawStrategy;
-import model.shapes.data.ShapeObject;
-import model.shapes.data.ColorAdaptor;
+import model.shapes.shapedata.ShapeObject;
+import model.shapes.shapedata.ColorAdaptor;
 import view.gui.PaintCanvas;
 
 import java.awt.*;
@@ -24,7 +24,7 @@ public class TriangleDrawStrategy implements IDrawStrategy {
         //create three sides needed for drawPolygon and fillPolygon functions
         int[] sideA = {shape.getDimensions().getStartX(), shape.getDimensions().getStartX() + shape.getDimensions().getWidth(), shape.getDimensions().getStartX()};
         int[] sideB = {shape.getDimensions().getStartY(), shape.getDimensions().getStartY() + shape.getDimensions().getHeight(), shape.getDimensions().getStartY() + shape.getDimensions().getHeight()};
-        //draw polygon shading type depending on shading type
+        //drawStrategy polygon shading type depending on shading type
         switch(shape.getShapeShadingType()){
             case FILLED_IN:
                 g.setColor(ColorAdaptor.adaptColor(shape.getShapePrimaryColor()));

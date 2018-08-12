@@ -1,6 +1,6 @@
-package controller.interfaces;
+package model.interfaces;
 
-import model.shapes.data.ShapeObject;
+import model.shapes.shapedata.ShapeObject;
 import java.util.List;
 
 public interface IList {

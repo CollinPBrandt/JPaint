@@ -1,12 +1,11 @@
 package controller.commands;
 
-import controller.interfaces.IList;
-import controller.lists.ShapeListManager;
-import model.interfaces.ICommand;
-import controller.lists.SelectedShapeList;
-import model.shapes.data.ShapeObject;
+import model.interfaces.IList;
+import model.persistence.lists.ShapeListManager;
+import controller.interfaces.ICommand;
+import model.shapes.shapedata.ShapeObject;
 import view.mouse.MouseDragDimensions;
-import controller.lists.ShapeList;
+import model.persistence.lists.ShapeList;
 
 public class SelectShapeCommand implements ICommand {
 
@@ -35,7 +34,7 @@ public class SelectShapeCommand implements ICommand {
         }
     }
 
-    public void removeSelectedShapes(){
+    private void removeSelectedShapes(){
         selectedShapeList.getList().clear();
     }
 

@@ -1,9 +1,9 @@
-package model.shapes.draw;
+package model.shapes.drawStrategy;
 
 import model.interfaces.IDrawStrategy;
 import model.interfaces.IShapeObserver;
-import controller.lists.ShapeList;
-import model.shapes.data.ShapeObject;
+import model.persistence.lists.ShapeList;
+import model.shapes.shapedata.ShapeObject;
 import view.gui.PaintCanvas;
 
 import java.awt.*;
