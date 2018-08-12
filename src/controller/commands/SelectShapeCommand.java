@@ -1,5 +1,6 @@
 package controller.commands;
 
+import controller.interfaces.IList;
 import controller.lists.ShapeListManager;
 import model.interfaces.ICommand;
 import controller.lists.SelectedShapeList;
@@ -11,7 +12,7 @@ public class SelectShapeCommand implements ICommand {
 
     private ShapeList shapeList;
     private MouseDragDimensions selectDimensions;
-    private SelectedShapeList selectedShapeList;
+    private IList selectedShapeList;
 
     public SelectShapeCommand(MouseDragDimensions selectDimensions, ShapeListManager shapeListManager) {
         this.selectDimensions = selectDimensions;

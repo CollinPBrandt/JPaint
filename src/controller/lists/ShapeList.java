@@ -1,5 +1,6 @@
 package controller.lists;
 
+import controller.interfaces.IList;
 import model.interfaces.IShapeListSubject;
 import model.interfaces.IShapeObserver;
 import model.shapes.data.ShapeObject;
@@ -7,7 +8,7 @@ import model.shapes.data.ShapeObject;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShapeList implements IShapeListSubject {
+public class ShapeList implements IList, IShapeListSubject {
 
     private List<ShapeObject> shapelist = new ArrayList<>();
     private List<IShapeObserver> shapeObservers = new ArrayList<>();

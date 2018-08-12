@@ -1,11 +1,11 @@
 package controller.lists;
 
+import controller.interfaces.IList;
 import model.shapes.data.ShapeObject;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class SelectedShapeList {
+public class SelectedShapeList implements IList {
 
     private List<ShapeObject> selectedList = new ArrayList<>();
 

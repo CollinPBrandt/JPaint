@@ -1,11 +1,12 @@
 package controller.lists;
 
+import controller.interfaces.IList;
 import model.shapes.data.ShapeObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class ClipBoardList {
+public class ClipBoardList implements IList {
 
     private List<ShapeObject> clipBoard = new ArrayList<>();
 

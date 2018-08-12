@@ -1,9 +1,11 @@
 package controller.lists;
 
+import controller.interfaces.IList;
+
 public class ShapeListManager {
     private ShapeList shapeList;
-    private SelectedShapeList selectedShapeList;
-    private ClipBoardList clipBoardList;
+    private IList selectedShapeList;
+    private IList clipBoardList;
 
     public ShapeListManager() {
         shapeList = new ShapeList();
@@ -15,11 +17,11 @@ public class ShapeListManager {
         return shapeList;
     }
 
-    public SelectedShapeList getSelectedShapeListObject() {
+    public IList getSelectedShapeListObject() {
         return selectedShapeList;
     }
 
-    public ClipBoardList getClipBoardListObject() {
+    public IList getClipBoardListObject() {
         return clipBoardList;
     }
 }
