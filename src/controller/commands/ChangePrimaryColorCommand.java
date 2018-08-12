@@ -1,13 +1,9 @@
 package controller.commands;
 
-import controller.interfaces.IUndoable;
 import model.interfaces.IApplicationState;
 import model.interfaces.ICommand;
 import model.shapes.data.ShapeObject;
 import model.shapes.enums.ShapeColor;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class ChangePrimaryColorCommand implements ICommand {
 
