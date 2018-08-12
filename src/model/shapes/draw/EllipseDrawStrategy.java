@@ -25,17 +25,17 @@ public class EllipseDrawStrategy implements IDrawStrategy {
         //Draw ellipse depending on shape shading type
         switch(shape.getShapeShadingType()){
             case FILLED_IN:
-                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.setColor(ColorAdaptor.adaptColor(shape.getShapePrimaryColor()));
                 g.fillOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
                 break;
             case OUTLINE:
-                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.setColor(ColorAdaptor.adaptColor(shape.getShapePrimaryColor()));
                 g.drawOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
                 break;
             case OUTLINE_AND_FILLED_IN:
-                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.setColor(ColorAdaptor.adaptColor(shape.getShapePrimaryColor()));
                 g.fillOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth(), shape.getDimensions().getHeight());
-                g.setColor(ColorAdaptor.ChangeColor(shape, 's'));
+                g.setColor(ColorAdaptor.adaptColor(shape.getShapeSecondaryColor()));
                 g.drawOval(shape.getDimensions().getStartX(), shape.getDimensions().getStartY(), shape.getDimensions().getWidth() - 1 , shape.getDimensions().getHeight() - 1); //looks better with 1px smaller outline
                 break;
         }

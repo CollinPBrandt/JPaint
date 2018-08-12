@@ -27,17 +27,17 @@ public class TriangleDrawStrategy implements IDrawStrategy {
         //draw polygon shading type depending on shading type
         switch(shape.getShapeShadingType()){
             case FILLED_IN:
-                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.setColor(ColorAdaptor.adaptColor(shape.getShapePrimaryColor()));
                 g.fillPolygon(sideA, sideB, 3);
                 break;
             case OUTLINE:
-                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.setColor(ColorAdaptor.adaptColor(shape.getShapePrimaryColor()));
                 g.drawPolygon(sideA, sideB, 3);
                 break;
             case OUTLINE_AND_FILLED_IN:
-                g.setColor(ColorAdaptor.ChangeColor(shape, 'p'));
+                g.setColor(ColorAdaptor.adaptColor(shape.getShapePrimaryColor()));
                 g.fillPolygon(sideA, sideB, 3);
-                g.setColor(ColorAdaptor.ChangeColor(shape, 's'));
+                g.setColor(ColorAdaptor.adaptColor(shape.getShapeSecondaryColor()));
                 g.drawPolygon(sideA, sideB, 3);
                 break;
         }

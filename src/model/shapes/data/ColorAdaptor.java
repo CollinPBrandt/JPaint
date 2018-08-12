@@ -1,47 +1,35 @@
 package model.shapes.data;
 
+
 import model.shapes.enums.ShapeColor;
+import java.awt.Color;
+import java.util.EnumMap;
 
-import java.awt.*;
+public final class ColorAdaptor {
 
-public class ColorAdaptor {
-
-    public static Color ChangeColor(ShapeObject shape, char primaryOrSecondary) {
-        ShapeColor shapeColor;
-        if(primaryOrSecondary == 'p')
-            shapeColor = shape.getShapePrimaryColor();
-        else
-            shapeColor = shape.getShapeSecondaryColor();
-
-        switch (shapeColor) {
-            case BLACK:
-                return Color.BLACK;
-            case BLUE:
-                return Color.BLUE;
-            case CYAN:
-                return Color.CYAN;
-            case DARK_GRAY:
-                return Color.DARK_GRAY;
-            case GRAY:
-                return Color.GRAY;
-            case GREEN:
-                return Color.GREEN;
-            case LIGHT_GRAY:
-                return Color.LIGHT_GRAY;
-            case MAGENTA:
-                return Color.MAGENTA;
-            case ORANGE:
-                return Color.ORANGE;
-            case PINK:
-                return Color.PINK;
-            case RED:
-                return Color.RED;
-            case WHITE:
-                return Color.WHITE;
-            case YELLOW:
-                return Color.YELLOW;
-        }
-        return Color.BLUE;
+    /*Maps ShapeColor enum to java.awt.Color*/
+    private final EnumMap<ShapeColor,Color> colorMap = new EnumMap<>(ShapeColor.class);
+    /*Create single instance of color adaptor*/
+    private static ColorAdaptor instance = new ColorAdaptor();
+    /*private constructor-singleton pattern. Fills EnumMap*/
+    private ColorAdaptor() {
+        colorMap.put(ShapeColor.BLACK, Color.BLACK);
+        colorMap.put(ShapeColor.BLUE, Color.BLUE);
+        colorMap.put(ShapeColor.CYAN, Color.CYAN);
+        colorMap.put(ShapeColor.DARK_GRAY, Color.DARK_GRAY);
+        colorMap.put(ShapeColor.GRAY, Color.GRAY);
+        colorMap.put(ShapeColor.GREEN, Color.GREEN);
+        colorMap.put(ShapeColor.LIGHT_GRAY, Color.LIGHT_GRAY);
+        colorMap.put(ShapeColor.MAGENTA, Color.MAGENTA);
+        colorMap.put(ShapeColor.ORANGE, Color.ORANGE);
+        colorMap.put(ShapeColor.PINK, Color.PINK);
+        colorMap.put(ShapeColor.RED, Color.RED);
+        colorMap.put(ShapeColor.WHITE, Color.WHITE);
+        colorMap.put(ShapeColor.YELLOW, Color.YELLOW);
+    }
+    /*Takes an enum color and returns the corresponding java.awt.Color*/
+    public static Color adaptColor(ShapeColor enumColor) {
+        return instance.colorMap.get(enumColor);
     }
 
 }
